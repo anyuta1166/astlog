@@ -1029,6 +1029,9 @@ class LogParser(object):
             if idx == -1:
                 idx = line.find(b'ERROR[', pos)
                 l = 6
+                if idx == -1:
+                    idx = line.find(b'NOTICE[', pos)
+                    l = 7
         if idx >= 0:
             pos = idx + l
             idx = line.find(b'][', pos, pos + 10)
